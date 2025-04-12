@@ -2,7 +2,7 @@ name: Run JAR exactly at 13:47:57 TR
 
 on:
   schedule:
-    - cron: '13 11 * * *' # Türkiye saatiyle 13:47:00
+    - cron: '47 11 * * *' # Türkiye saatiyle 13:47:00
   workflow_dispatch:
   
 jobs:
