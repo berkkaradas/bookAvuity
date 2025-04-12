@@ -2,7 +2,7 @@ name: Run JAR exactly at 13:47:57 TR
 
 on:
   schedule:
-    - cron: '55 10 * * *' # Türkiye saatiyle 13:47:00
+    - cron: '08 11 * * *' # Türkiye saatiyle 13:47:00
   workflow_dispatch:
   
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: Wait until 13:47:57 and run JAR
         run: |
           echo "Started at: $(date)"
-          while [ "$(date +%H:%M:%S)" != "10:55:57" ]; do
+          while [ "$(date -u +%H:%M:%S)" != "11:08:57" ]; do
             sleep 0.2
           done
           echo "Running at exact second: $(date)"
