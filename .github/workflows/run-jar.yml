@@ -1,0 +1,29 @@
+name: Run JAR exactly at 13:47:57 TR
+
+on:
+  schedule:
+    - cron: '47 10 * * *' # Türkiye saatiyle 13:47:00
+  workflow_dispatch:
+  
+jobs:
+  precise-jar-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Wait until 13:47:57 and run JAR
+        run: |
+          echo "Started at: $(date)"
+          while [ "$(date +%H:%M:%S)" != "13:47:57" ]; do
+            sleep 0.2
+          done
+          echo "Running at exact second: $(date)"
+          java -jar test_project.jar
