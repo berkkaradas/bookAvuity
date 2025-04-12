@@ -2,7 +2,7 @@ name: Run JAR tam olarak 11:55:55 UTC'de çalıştır
 
 on:
   schedule:
-    - cron: '55 11 * * *' # UTC saatiyle 11:55:55
+    - cron: '03 12 * * *'  # UTC 11:55:00
   workflow_dispatch:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: 11:55:55 UTC'yi bekle ve JAR'ı çalıştır
         run: |
           # Tam olarak 11:55:55 UTC'yi bekle
-          target_time="11:55:55"
+          target_time="12:03:55"
           while [[ "$(date +'%H:%M:%S')" != "$target_time" ]]; do
             sleep 0.5
           done
